@@ -3,7 +3,8 @@
 This task focuses on the process of installing the ROS (Robot Operating System) software and its packages on a 64-bit computer system.
 
 ## First Introduction:-
-      This installation and configuration process used VMware virtual machine (VMware® Workstation 16 Pro) integrated with ROS Noetic Ninjemys, which primarily targets Ubuntu 20.04 (Focal) release.
+ 
+ This installation and configuration process used VMware virtual machine (VMware® Workstation 16 Pro) integrated with ROS Noetic Ninjemys, which primarily targets Ubuntu 20.04 (Focal) release.
 
    *Virtual machine (VMware® Workstation 16 Pro) minimum system requirements:*
 
@@ -75,3 +76,65 @@ Also, if you have not yet installed rosdep, do so as follows.
 ```
 sudo apt install python3-rosdep
 ```
+
+Congragulation, you have installed ROS noetic successfully. You may check the following commands to interact with ROS:
+
+```
+roscore: Starts the ROS master process
+roslaunch: Launches nodes described in a launch script
+rosnode list: Shows a list of running nodes.
+rostopic list: Shows a list of published topics
+rostopic echo /topic: Echos the topic given
+rostopic pub /topic type data: Publishes data, example: rostopic pub /hello std_msgs/String “Hello”
+rosparam list: Lists parameters
+rosparam set parameter_name value: Sets parameters
+rosparam get parameter_name: Gets a parameter value
+rosversion -d: Lists version of ROS
+roslaunch ros_pkg_name launch_file_name: Calls a launch script, ex: roslaunch roscpp_tutorials talker_listener.launch
+rosrun ros_pkg_name node_name: Starts a ros node.
+*Source: Prof. J Gobbert AAE 490 IAR: Spring 2020*
+```
+Now, there are a few packages and tools to add on ROS to be able to complete this track.
+
+Therefore, let's download and run the catkin tool. Open the terminal and run the following commands:
+```
+cd ~/catkin_ws/src
+rosdep install --from-paths src --ignore-src -r -y
+ sudo apt-get install ros-noetic-moveit
+ sudo apt-get install ros-noetic-joint-state-publisher ros-noetic-joint-state-publisher-gui
+ sudo apt-get install ros-noetic-gazebo-ros-control joint-state-publisher
+ sudo apt-get install ros-noetic-ros-controllers ros-noetic-ros-control
+```
+Install catkin python tools:
+```
+ sudo apt install python3-osrf-pycommon
+ sudo apt install python3-catkin-tools
+```
+Make sure that ROS is running on another terminal and then go back to the folder, initiate, and compile the tool:
+```
+cd ~/catkin_ws
+
+catkin init
+
+catkin_make
+```
+
+We are almost done. Clone the robot arm and launch it (roscore must be running at this point), as follows:
+```
+git clone https://github.com/smart-methods/arduino_robot_arm 
+
+source /home/user/catkin_ws/devel/setup.bash
+
+roslaunch robot_arm_pkg check_motors.launch
+
+```
+
+Install git to clone the arm folder, if didn't, using the command:
+```
+sudo apt install git
+
+```
+
+Congratulations, We are done. Your final screen should look like this:
+
+![image](https://user-images.githubusercontent.com/77699294/122617269-9b0d2800-d094-11eb-9ee7-f1b137302889.png)

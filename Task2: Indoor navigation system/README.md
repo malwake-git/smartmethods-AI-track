@@ -1,4 +1,4 @@
-# Task1: Indoor navigation system for mobile robot design and implementation
+# Task2: Indoor navigation system for mobile robot design and implementation
 
 This task focuses on the process of running SLAM (Simultaneous Localization and Mapping) using emulated robotics machine in ROS.
 
@@ -83,10 +83,9 @@ The following website provides all the necessary steps to complete the task. Ple
 - http://wiki.ros.org/Robots/evarobot
 - https://github.com/inomuh/evarobot
 
+Moreover, we will go through the steps to clarify some hidden concepts and ideas about this task.
 
-Moreover, we will go through the steps in here to clarify some hidden concepts and ideas about this task.
-
-First, let's go on and install some needed packages for the task
+First, let's go on and install some needed packages for this task
 ```
 sudo apt update
 
@@ -121,6 +120,7 @@ sudo apt-get install ros-noetic-openslam-gmapping
 
 sudo apt-get install ros-noetic-slam-gmapping
 ```
+
 In order for the sensors to work properly, "gazebo_ros_pkgs" files must be downloaded. If the command didn't work please reveiw the following links: http://wiki.ros.org/gazebo_ros_pkgs
 ```
 sudo apt-get install ros-noetic-gazebo-ros-pkgs
@@ -131,10 +131,75 @@ sudo apt-get install ros-noetic-ros-navigation
 ```
 Now, download evarobot packages:
 ```
+cd ~/catkin_ws/src
+# clone teleop package
+sudo apt-get install ros-noetic-teleop-twist-keyboard
 
+# install gazebo ros packages
+sudo apt-get install ros-noetic-ros-control
+sudo apt-get install ros-noetic-ros-controllers
+sudo apt-get install ros-noetic-gazebo-ros-pkgs
+
+# install joint state publisher gui
+sudo apt-get install ros-noetic-joint-state-publisher-gui
 ```
 
+clone hector gazebo model, ros navigation package,  interative marker twist server
+```
+git clone https://github.com/tu-darmstadt-ros-pkg/hector_gazebo.git -b melodic-devel
 
+sudo apt-get install ros-noetic-navigation
 
+sudo apt-get install ros-kinetic-interactive-marker-twist-server
 
+git clone https://github.com/ros-drivers/driver_common -b indigo-deve
+```
+Compile the installed packages
+```
+cd ~/catkin_ws
 
+catkin_make
+```
+Now, we can install Evarobot ROS Noetic packages for PC.
+
+```
+cd ~/catkin_ws/src
+git clone https://github.com/inomuh/evarobot
+
+cd ~/catkin_ws
+catkin_make
+```
+Try evarobot_gazebo_emptyworld.launch file to run Evarobot Gazebo model
+```
+roslaunch evarobot_simulation evarobot_gazebo_emptyworld.launch
+```
+Your screen should like this:
+
+![week2(3)](https://user-images.githubusercontent.com/77699294/123519838-539b2300-d6b6-11eb-8276-5238f84db48d.png)
+
+Here are some of the launching commands you can use:
+
+```
+# Gazebo Launching:
+$ roslaunch evarobot_simulation evarobot_gazebo_emptyworld.launch
+
+#Solo-Rviz Launching:
+$ roslaunch evarobot_simulation evarobot_rviz_standalone.launch
+
+#Rviz (with Gazebo) Launching:
+$ roslaunch evarobot_simulation evarobot_rviz.launch
+
+#SLAM Mapping Launching (must work with Gazebo and RViz Launching):
+$ roslaunch evarobot_slam evarobot_slam.launch
+```
+To launch the keyboard teleoperation of evarobot
+```
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+```
+Finally, you can download any map, launch your evarobot to explore it, and then save the map with the following commands:
+```
+rosrun map_server map_saver -f $(rospack find evarobot_navigation)/map/ma
+
+# Ex. rosrun map_server map_saver -f ~/map
+```
+![map (1)2](https://user-images.githubusercontent.com/77699294/123520089-af19e080-d6b7-11eb-8dc5-1c3716f39129.jpg)

@@ -54,7 +54,7 @@ You can run the Gazeboo, Rviz, and slam launch files for testing:
 $ export TURTLEBOT3_MODEL=burger
 $ roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch
 
-#SLAM
+#Rviz
 $ export TURTLEBOT3_MODEL=burger
 $ roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping
 ```

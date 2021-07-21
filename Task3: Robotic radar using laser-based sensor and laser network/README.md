@@ -1,14 +1,14 @@
 # Task3: Robotic Radar using Simulated Navigation and Laser Network
 
-This task focuses on the process of Nevigating Turtlebot3 using SLAM (Simultaneous Localization and Mapping) in ROS.
+This task focuses on the process of navigating Turtlebot3 using SLAM (Simultaneous Localization and Mapping) in ROS.
 
 ## First Introduction:-
  
- First, to complete the task, we used ROS Noetic version installed on Ubuntu 20.04, along with Turtlebot3. You may review task 1 and 2 for further details.
+First, to complete the task, we used ROS Noetic version installed on Ubuntu 20.04, along with Turtlebot3. You may review tasks 1 and 2 for further details.
  
- The task consiste of:
+The task consists of:
  
- Using Turtlebot3 with the SLAM approach to create and nevigate the Turtlebot3 robot through the saved .yml map.
+Using Turtlebot3 with the SLAM approach to create and navigate the Turtlebot3 robot through the saved .yml map.
  
  
  The following tools were needed to run and complete the task. Please make sure to install them beforehand:
@@ -67,5 +67,5 @@ rosrun map_server map_saver -f $(rospack find evarobot_navigation)/map/ma
 
 # Ex. rosrun map_server map_saver -f ~/map
 ```
-![map (1)2](https://user-images.githubusercontent.com/77699294/123520089-af19e080-d6b7-11eb-8dc5-1c3716f39129.jpg)
+
 

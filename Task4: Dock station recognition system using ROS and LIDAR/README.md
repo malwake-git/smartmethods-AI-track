@@ -16,7 +16,18 @@ This task focuses on the process of writing a python script that publishes to /m
 
 ## Script Run and Results:-
 
-After launching Gazebo, Rviz, and Roscore from the previous saved map in task3.
+- clone & compile the provided package inside catkin:
+
+```
+$ cd ~/catkin_ws/src
+
+$ git clone #The Package Robot_movement (Zip, SSH, or HTTP)
+
+$ cd catkin_ws && catkin_make
+
+```
+
+- Launch Gazebo, Rviz, and Roscore from the previous saved map in task3.
 
 ```
 # Gazebo

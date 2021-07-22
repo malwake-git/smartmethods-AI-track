@@ -8,7 +8,7 @@ First, to complete the task, we used ROS Noetic version installed on Ubuntu 20.0
  
 The task consists of:
  
-Using Turtlebot3 with the SLAM approach to create and navigate the Turtlebot3 robot through the saved .yml map.
+Using Turtlebot3 with the SLAM approach to create and navigate the Turtlebot3 robot through the saved .yaml map.
  
  
  The following tools were needed to run and complete the task. Please make sure to install them beforehand:
@@ -68,4 +68,5 @@ rosrun map_server map_saver -f $(rospack find evarobot_navigation)/map/ma
 # Ex. rosrun map_server map_saver -f ~/map
 ```
 
+![map (2)](https://user-images.githubusercontent.com/77699294/126582862-56e08b6f-0b7e-403a-867e-9796d62e5f65.jpg)
 

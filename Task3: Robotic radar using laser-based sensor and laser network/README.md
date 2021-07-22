@@ -38,6 +38,10 @@ $ roslaunch turtlebot3_gazebo turtlebot3_world.launch
 $ export TURTLEBOT3_MODEL=burger
 $ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/map.yaml
 ```
+![image](https://user-images.githubusercontent.com/77699294/126583737-244b927d-98ac-4149-9162-3e431b3a71e6.png)
+
+![task3](https://user-images.githubusercontent.com/77699294/126583746-502e406a-2931-4324-be6d-e58b4f246927.png)
+
 - Estimate Initial Pose from the steps:
 1- Click the 2D Pose Estimate button in the RViz menu.
 2- Click on the map where the actual robot is located and drag the large green arrow toward the direction where the robot is facing.
@@ -49,6 +53,8 @@ $ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 ```
 4- Move the robot back and forth a bit to collect the surrounding environment information and narrow down the estimated location of the TurtleBot3 on the map which is displayed with tiny green arrows.
 
+![image](https://user-images.githubusercontent.com/77699294/126583707-b2f4d96a-d9b0-4d5b-8feb-180072312c77.png)
+
 
 Set Navigation Goal Steps:
 
@@ -59,6 +65,8 @@ Some helpful tips:
 - This green arrow is a marker that can specify the destination of the robot.
 - The root of the arrow is x, y coordinate of the destination, and the angle θ is determined by the orientation of the arrow.
 - As soon as x, y, θ are set, TurtleBot3 will start moving to the destination immediately.
+
+![image](https://user-images.githubusercontent.com/77699294/126583795-904e05ae-9ec2-47ba-b717-cba16ddbaee6.png)
 
 
 Finally, you can download the map again with the following commands:
